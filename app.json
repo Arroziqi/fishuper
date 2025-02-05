@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "HelloWorld",
-    "slug": "expo-template-default",
+    "name": "FishUPER",
+    "slug": "fishuper",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -9,13 +9,15 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.arroziqi.fishuper"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.arroziqi.fishuper"
     },
     "web": {
       "bundler": "metro",
@@ -36,6 +38,18 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "eas": {
+        "projectId": "e17ff5f5-478a-45a7-83c0-55fe7a950455"
+      }
+    },
+    "owner": "arroziqi",
+    "updates": {
+      "url": "https://u.expo.dev/e17ff5f5-478a-45a7-83c0-55fe7a950455"
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
     }
   }
 }
