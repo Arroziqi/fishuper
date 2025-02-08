@@ -16,7 +16,7 @@ export function RingButton({
       {...props}
       onPress={onPress}
       style={[styles.button, props.style, { borderColor }]}
-      textStyles={styles.text}
+      textStyles={[styles.text, props.textStyles]}
     />
   );
 }

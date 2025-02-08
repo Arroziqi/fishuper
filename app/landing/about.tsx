@@ -1,12 +1,9 @@
-import { PrimaryButton } from "@/components/button/PrimaryButton";
-import { RingButton } from "@/components/button/RingButton";
 import { FooterView } from "@/components/FooterView";
 import { ThemedText } from "@/components/ThemedText";
 import { ToggleMenu } from "@/components/toggle/ToggleMenu";
-import LoginForm from "@/components/ui/form/LoginForm";
 import { CustomColors } from "@/constants/Colors";
 import { LinearGradient } from "expo-linear-gradient";
-import { router } from "expo-router";
+import { Link, router } from "expo-router";
 import { useState } from "react";
 import {
   Image,
@@ -14,9 +11,10 @@ import {
   Platform,
   ScrollView,
   StyleSheet,
+  TouchableOpacity,
 } from "react-native";
 
-export default function LandingScreen() {
+export default function AboutScreen() {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
@@ -28,35 +26,24 @@ export default function LandingScreen() {
     >
       <ScrollView contentContainerStyle={styles.scrollContainer}>
         <LinearGradient
-          colors={[
-            CustomColors.darkBlue,
-            CustomColors.blue,
-            CustomColors.lightBlue,
-          ]}
+          colors={["white", "white"]}
           style={styles.linearGradient}
         >
           <ToggleMenu
             onPress={() => {
               router.push("/landing/menu");
             }}
+            color={CustomColors.primaryColor}
           />
           <Image
-            source={require("@/assets/images/logo-onboarding.png")}
+            source={require("@/assets/images/logo.png")}
             style={styles.image}
           />
-          <Image
-            source={require("@/assets/images/text-logo.png")}
-            style={styles.textImage}
-          />
-          <ThemedText style={styles.text} type="subtitle">
-            Fish supply and demand
+          <ThemedText style={styles.text1}>Tentang</ThemedText>
+          <ThemedText style={styles.text2}>Kami</ThemedText>
+          <ThemedText style={styles.text3}>
+            Aplikasi pasar ikan laut segar
           </ThemedText>
-          <LoginForm
-            email={email}
-            setEmail={setEmail}
-            password={password}
-            setPassword={setPassword}
-          />
           <Footer />
         </LinearGradient>
       </ScrollView>
@@ -66,11 +53,24 @@ export default function LandingScreen() {
 
 const Footer: React.FC = () => {
   return (
-    <FooterView backgroundColors={["white", "white"]} style={styles.footer}>
-      <ThemedText>Lupa Password?</ThemedText>
-      <PrimaryButton text="Masuk" onPress={() => {}} />
-      <ThemedText>atau</ThemedText>
-      <RingButton text="Buat Akun Baru" onPress={() => {}} />
+    <FooterView
+      backgroundColors={[
+        CustomColors.primaryColor,
+        CustomColors.secondaryColor,
+      ]}
+      style={styles.footer}
+    >
+      <ThemedText style={styles.text}>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Libero, quos
+        molestiae voluptate in dicta alias vel ratione asperiores perspiciatis!
+        Pariatur, dolorem, repellat, provident illo aut cupiditate unde eum
+        voluptate non optio laudantium perferendis animi vitae.
+      </ThemedText>
+      <TouchableOpacity>
+        <Link href={"/landing"} style={styles.link}>
+          Back to Log In
+        </Link>
+      </TouchableOpacity>
     </FooterView>
   );
 };
@@ -78,6 +78,7 @@ const Footer: React.FC = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    position: "relative",
   },
   scrollContainer: {
     flexGrow: 1,
@@ -86,27 +87,44 @@ const styles = StyleSheet.create({
   linearGradient: {
     paddingTop: 50,
     flex: 1,
-    justifyContent: "center",
+    justifyContent: "flex-start",
     alignItems: "center",
+    position: "relative",
   },
   image: {
-    width: 324.33,
-    height: 333.82,
-    resizeMode: "contain",
-  },
-  textImage: {
-    width: 208,
-    height: 55,
+    width: 350,
+    height: 350,
     resizeMode: "contain",
   },
   text: {
     color: "#fff",
   },
+  text1: {
+    color: "#002E86",
+    fontWeight: "900",
+    fontSize: 48,
+    lineHeight: 48,
+  },
+  text2: {
+    color: "#002E86",
+    fontWeight: "regular",
+    fontSize: 48,
+    lineHeight: 48,
+  },
+  text3: {
+    color: "#002E86",
+    fontWeight: "regular",
+    fontSize: 20,
+    lineHeight: 20,
+  },
   footer: {
     gap: 7,
-    paddingVertical: 17,
+    paddingVertical: 24,
     paddingHorizontal: 40,
     alignItems: "center",
-    position: "relative",
+  },
+  link: {
+    color: "#fff",
+    fontSize: 24,
   },
 });

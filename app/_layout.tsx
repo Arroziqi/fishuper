@@ -22,6 +22,8 @@ export default function RootLayout() {
   const colorScheme = useColorScheme();
   const [loaded] = useFonts({
     SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
+    Inter: require("../assets/fonts/Inter-VariableFont_opsz,wght.ttf"),
+    Karla: require("../assets/fonts/Karla-VariableFont_wght.ttf"),
   });
 
   useEffect(() => {

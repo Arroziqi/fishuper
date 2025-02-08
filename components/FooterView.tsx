@@ -1,7 +1,6 @@
 import { CustomColors } from "@/constants/Colors";
 import { LinearGradient } from "expo-linear-gradient";
 import { StyleSheet, ViewProps } from "react-native";
-import { ThemedView } from "./ThemedView";
 
 type FooterViewProps = ViewProps & {
   backgroundColors?: any;
@@ -14,26 +13,23 @@ export function FooterView({
   ...rest
 }: FooterViewProps) {
   return (
-    <ThemedView style={[styles.container]}>
-      <LinearGradient
-        colors={backgroundColors}
-        style={[styles.LinearGradient, rest.style]}
-      >
-        {children}
-      </LinearGradient>
-    </ThemedView>
+    <LinearGradient
+      colors={backgroundColors}
+      style={[styles.container, rest.style]}
+    >
+      {children}
+    </LinearGradient>
   );
 }
 
 const styles = StyleSheet.create({
-  LinearGradient: {
-    width: "100%",
-    borderTopLeftRadius: 40,
-    borderTopRightRadius: 40,
-  },
   container: {
     width: "100%",
     borderTopLeftRadius: 40,
     borderTopRightRadius: 40,
+    zIndex: 100,
+    boxShadow: "0px 0px 40px 20px rgba(0,0,0,0.25)",
+    position: "absolute",
+    bottom: 0,
   },
 });
