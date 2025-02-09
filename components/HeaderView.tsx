@@ -1,4 +1,3 @@
-import { CustomColors } from "@/constants/Colors";
 import { LinearGradient } from "expo-linear-gradient";
 import { StyleSheet, ViewProps } from "react-native";
 import { ThemedView } from "./ThemedView";
@@ -9,7 +8,7 @@ type HeaderViewProps = ViewProps & {
 };
 
 export function HeaderView({
-  backgroundColors = [CustomColors.secondaryColor, CustomColors.primaryColor],
+  backgroundColors = ["#4A7EE3", "#143F93", "#002E86"],
   children,
   ...rest
 }: HeaderViewProps) {

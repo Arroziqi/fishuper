@@ -4,7 +4,13 @@ import { ThemedView } from "@/components/ThemedView";
 import { ToggleMenu } from "@/components/toggle/ToggleMenu";
 import { CustomColors } from "@/constants/Colors";
 import { Link, router } from "expo-router";
-import { Image, Linking, StyleSheet, TouchableOpacity } from "react-native";
+import {
+  Image,
+  Linking,
+  ScrollView,
+  StyleSheet,
+  TouchableOpacity,
+} from "react-native";
 
 const Location: React.FC = () => {
   const openURL = (url: string) => {
@@ -14,39 +20,41 @@ const Location: React.FC = () => {
   return (
     <ThemedView style={styles.container}>
       <Header />
-      <ThemedView style={styles.content}>
-        <ThemedText style={styles.text4}>Gudang dan Toko</ThemedText>
-        <TouchableOpacity
-          onPress={() =>
-            openURL(
-              "https://www.google.com/maps/search/?api=1&query=TPI+Weru+Paciran,+Lamongan"
-            )
-          }
-        >
-          <Image
-            source={require("@/assets/images/gudang.png")}
-            style={[styles.image]}
-          />
-        </TouchableOpacity>
-        <ThemedText style={styles.text4}>Kantor Resmi</ThemedText>
-        <TouchableOpacity
-          onPress={() =>
-            openURL(
-              "https://www.google.com/maps/search/?api=1&query=Universitas+Pertamina"
-            )
-          }
-        >
-          <Image
-            source={require("@/assets/images/kantor.png")}
-            style={[styles.image]}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <Link href={"/landing"} style={styles.link}>
-            Back to Log In
-          </Link>
-        </TouchableOpacity>
-      </ThemedView>
+      <ScrollView contentContainerStyle={styles.scrollContainer}>
+        <ThemedView style={styles.content}>
+          <ThemedText style={styles.text4}>Gudang dan Toko</ThemedText>
+          <TouchableOpacity
+            onPress={() =>
+              openURL(
+                "https://www.google.com/maps/search/?api=1&query=TPI+Weru+Paciran,+Lamongan"
+              )
+            }
+          >
+            <Image
+              source={require("@/assets/images/gudang.png")}
+              style={[styles.image]}
+            />
+          </TouchableOpacity>
+          <ThemedText style={styles.text4}>Kantor Resmi</ThemedText>
+          <TouchableOpacity
+            onPress={() =>
+              openURL(
+                "https://www.google.com/maps/search/?api=1&query=Universitas+Pertamina"
+              )
+            }
+          >
+            <Image
+              source={require("@/assets/images/kantor.png")}
+              style={[styles.image]}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <Link href={"/landing"} style={styles.link}>
+              Back to Log In
+            </Link>
+          </TouchableOpacity>
+        </ThemedView>
+      </ScrollView>
     </ThemedView>
   );
 };
@@ -87,6 +95,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
   },
+  scrollContainer: {
+    flexGrow: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
   content: {
     justifyContent: "center",
     alignItems: "center",
@@ -102,6 +115,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     gap: 2,
     paddingBottom: 24,
+    position: "relative",
   },
   ringButton: {
     backgroundColor: "white",

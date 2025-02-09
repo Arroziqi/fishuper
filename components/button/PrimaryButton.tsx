@@ -4,17 +4,19 @@ import { Button, ButtonProps } from "./Button";
 
 export type PrimaryButtonProps = ButtonProps & {
   colors?: readonly [string, string, ...string[]];
+  borderRadius?: number;
 };
 
 export function PrimaryButton({
   colors = ["#5A75A9", "#2851A0"],
+  borderRadius = 74,
   onPress,
   ...props
 }: PrimaryButtonProps) {
   return (
     <LinearGradient
       colors={colors}
-      style={styles.linearGradient}
+      style={[styles.linearGradient, { borderRadius }]}
       start={[0, 0]}
       end={[1, 0]}
     >
@@ -22,7 +24,7 @@ export function PrimaryButton({
         {...props}
         onPress={onPress}
         style={[styles.button, props.style]}
-        textStyles={styles.text}
+        textStyles={[styles.text, props.textStyles]}
       />
     </LinearGradient>
   );
@@ -31,7 +33,6 @@ export function PrimaryButton({
 const styles = StyleSheet.create({
   linearGradient: {
     width: "100%",
-    borderRadius: 74,
   },
   button: {
     width: "100%",

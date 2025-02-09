@@ -6,83 +6,76 @@ import { ToggleMenu } from "@/components/toggle/ToggleMenu";
 import LoginForm from "@/components/ui/form/LoginForm";
 import { CustomColors } from "@/constants/Colors";
 import { LinearGradient } from "expo-linear-gradient";
-import { router } from "expo-router";
+import { Link, router } from "expo-router";
 import { useState } from "react";
-import {
-  Image,
-  KeyboardAvoidingView,
-  Platform,
-  ScrollView,
-  StyleSheet,
-} from "react-native";
+import { Image, StyleSheet } from "react-native";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 export default function LandingScreen() {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
   return (
-    <KeyboardAvoidingView
-      behavior={Platform.OS === "ios" ? "padding" : undefined}
-      style={styles.container}
-      keyboardVerticalOffset={Platform.OS === "ios" ? 100 : 0}
+    <KeyboardAwareScrollView
+      style={{ flex: 1 }}
+      enableOnAndroid={true}
+      keyboardShouldPersistTaps="handled"
     >
-      <ScrollView contentContainerStyle={styles.scrollContainer}>
-        <LinearGradient
-          colors={[
-            CustomColors.darkBlue,
-            CustomColors.blue,
-            CustomColors.lightBlue,
-          ]}
-          style={styles.linearGradient}
-        >
-          <ToggleMenu
-            onPress={() => {
-              router.push("/landing/menu");
-            }}
-          />
-          <Image
-            source={require("@/assets/images/logo-onboarding.png")}
-            style={styles.image}
-          />
-          <Image
-            source={require("@/assets/images/text-logo.png")}
-            style={styles.textImage}
-          />
-          <ThemedText style={styles.text} type="subtitle">
-            Fish supply and demand
-          </ThemedText>
-          <LoginForm
-            email={email}
-            setEmail={setEmail}
-            password={password}
-            setPassword={setPassword}
-          />
-          <Footer />
-        </LinearGradient>
-      </ScrollView>
-    </KeyboardAvoidingView>
+      <LinearGradient
+        colors={[
+          CustomColors.darkBlue,
+          CustomColors.blue,
+          CustomColors.lightBlue,
+        ]}
+        style={styles.linearGradient}
+      >
+        <ToggleMenu
+          onPress={() => {
+            router.push("/landing/menu");
+          }}
+        />
+        <Image
+          source={require("@/assets/images/logo-onboarding.png")}
+          style={styles.image}
+        />
+        <Image
+          source={require("@/assets/images/text-logo.png")}
+          style={styles.textImage}
+        />
+        <ThemedText style={styles.text} type="subtitle">
+          Fish supply and demand
+        </ThemedText>
+        <LoginForm
+          email={email}
+          setEmail={setEmail}
+          password={password}
+          setPassword={setPassword}
+        />
+        <Footer />
+      </LinearGradient>
+    </KeyboardAwareScrollView>
   );
 }
 
 const Footer: React.FC = () => {
   return (
     <FooterView backgroundColors={["white", "white"]} style={styles.footer}>
-      <ThemedText>Lupa Password?</ThemedText>
+      <Link href={"/landing/forgotPassword"}>
+        <ThemedText>Lupa Password?</ThemedText>
+      </Link>
       <PrimaryButton text="Masuk" onPress={() => {}} />
       <ThemedText>atau</ThemedText>
-      <RingButton text="Buat Akun Baru" onPress={() => {}} />
+      <RingButton
+        text="Buat Akun Baru"
+        onPress={() => {
+          router.push("/landing/signup");
+        }}
+      />
     </FooterView>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  scrollContainer: {
-    flexGrow: 1,
-    justifyContent: "center",
-  },
   linearGradient: {
     paddingTop: 50,
     flex: 1,

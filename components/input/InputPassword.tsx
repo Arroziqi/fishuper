@@ -7,6 +7,7 @@ export interface InputPasswordProps {
   onChangeText: (text: string) => void;
   color?: string;
   borderColor?: string;
+  placeholder?: string;
 }
 
 export function InputPassword({
@@ -14,6 +15,7 @@ export function InputPassword({
   onChangeText,
   color = "white",
   borderColor = "white",
+  placeholder = "Password",
 }: InputPasswordProps) {
   const [showPassword, setShowPassword] = useState<boolean>(false);
 
@@ -26,7 +28,7 @@ export function InputPassword({
       <MaterialIcons name="lock" size={24} color={color} />
       <TextInput
         style={[styles.input, { color }]}
-        placeholder="Password"
+        placeholder={placeholder}
         placeholderTextColor={color}
         secureTextEntry={!showPassword}
         value={value}

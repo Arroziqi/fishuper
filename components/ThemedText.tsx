@@ -1,6 +1,5 @@
-import { StyleSheet, Text, type TextProps } from "react-native";
-
 import { useThemeColor } from "@/hooks/useThemeColor";
+import { StyleSheet, Text, type TextProps } from "react-native";
 
 export type ThemedTextProps = TextProps & {
   lightColor?: string;
@@ -34,11 +33,19 @@ export function ThemedText({
     <Text
       style={[
         { color },
-        type === "default" ? styles.default : undefined,
-        type === "title" ? styles.title : undefined,
-        type === "defaultSemiBold" ? styles.defaultSemiBold : undefined,
-        type === "subtitle" ? styles.subtitle : undefined,
-        type === "link" ? styles.link : undefined,
+        type === "label" && styles.label,
+        type === "textButton" && styles.textButton,
+        type === "textButtonRegular" && styles.textButtonRegular,
+        type === "default" && styles.default,
+        type === "defaultSemiBold" && styles.defaultSemiBold,
+        type === "defaultBold" && styles.defaultBold,
+        type === "title" && styles.title,
+        type === "subtitle" && styles.subtitle,
+        type === "title2" && styles.title2,
+        type === "subtitle2" && styles.subtitle2,
+        type === "heading" && styles.heading,
+        type === "headingRegular" && styles.headingRegular,
+        type === "link" && styles.link,
         style,
       ]}
       {...rest}
@@ -53,11 +60,11 @@ const styles = StyleSheet.create({
   },
   textButton: {
     fontSize: 14,
-    fontWeight: "black",
+    fontWeight: "900",
   },
   textButtonRegular: {
     fontSize: 14,
-    fontWeight: "regular",
+    fontWeight: "400",
   },
   default: {
     fontSize: 16,
@@ -75,12 +82,12 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 24,
-    fontWeight: "black",
+    fontWeight: "900",
     lineHeight: 27,
   },
   subtitle: {
     fontSize: 20,
-    fontWeight: "regular",
+    fontWeight: "400",
   },
   title2: {
     fontSize: 20,
@@ -89,16 +96,16 @@ const styles = StyleSheet.create({
   },
   subtitle2: {
     fontSize: 16,
-    fontWeight: "regular",
+    fontWeight: "400",
   },
   heading: {
     fontSize: 32,
-    fontWeight: "black",
+    fontWeight: "900",
     lineHeight: 37,
   },
   headingRegular: {
     fontSize: 32,
-    fontWeight: "regular",
+    fontWeight: "400",
     lineHeight: 37,
   },
   link: {

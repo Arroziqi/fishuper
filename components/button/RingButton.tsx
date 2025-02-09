@@ -4,10 +4,14 @@ import { Button, ButtonProps } from "./Button";
 
 export type RingButtonProps = ButtonProps & {
   borderColor?: string;
+  textColor?: string;
+  backgroundColor?: string;
 };
 
 export function RingButton({
   borderColor = CustomColors.primaryColor,
+  textColor = borderColor,
+  backgroundColor = "white",
   onPress,
   ...props
 }: RingButtonProps) {
@@ -15,8 +19,8 @@ export function RingButton({
     <Button
       {...props}
       onPress={onPress}
-      style={[styles.button, props.style, { borderColor }]}
-      textStyles={[styles.text, props.textStyles]}
+      style={[styles.button, props.style, { borderColor, backgroundColor }]}
+      textStyles={[styles.text, props.textStyles, { color: textColor }]}
     />
   );
 }
@@ -31,6 +35,5 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 24,
-    color: CustomColors.primaryColor,
   },
 });

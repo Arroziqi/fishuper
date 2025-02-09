@@ -6,6 +6,9 @@ export default function LandingLayout() {
       <Stack.Screen name="about" options={{ headerShown: false }} />
       <Stack.Screen name="location" options={{ headerShown: false }} />
       <Stack.Screen name="index" options={{ headerShown: false }} />
+      <Stack.Screen name="signup" options={{ headerShown: false }} />
+      <Stack.Screen name="role" options={{ headerShown: false }} />
+      <Stack.Screen name="forgotPassword" options={{ headerShown: false }} />
       <Stack.Screen
         name="menu"
         options={{
