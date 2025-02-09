@@ -1,6 +1,7 @@
 import { MaterialIcons } from "@expo/vector-icons";
 import React from "react";
 import { StyleSheet, TextInput, View } from "react-native";
+import { ViewStyle } from "react-native/Libraries/StyleSheet/StyleSheetTypes";
 
 export interface InputWithIconProps {
   icon: keyof typeof MaterialIcons.glyphMap;
@@ -10,6 +11,8 @@ export interface InputWithIconProps {
   onChangeText: (text: string) => void;
   color?: string;
   borderColor?: string;
+  borderWidth?: number;
+  style?: ViewStyle;
 }
 
 export function InputWithIcon({
@@ -20,9 +23,11 @@ export function InputWithIcon({
   onChangeText,
   color = "white",
   borderColor = "white",
+  borderWidth = 5,
+  style,
 }: InputWithIconProps) {
   return (
-    <View style={[styles.inputContainer, { borderColor }]}>
+    <View style={[style, styles.inputContainer, { borderColor, borderWidth }]}>
       <MaterialIcons name={icon} size={24} color={color} />
       <TextInput
         style={[styles.input, { color }]}
@@ -41,7 +46,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     gap: 7,
-    borderWidth: 5,
     borderRadius: 74,
     paddingVertical: 5,
     paddingHorizontal: 20,
