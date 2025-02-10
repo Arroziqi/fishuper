@@ -1,10 +1,13 @@
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
+import { TopBar } from "@/components/ui/TopBar/TopBar";
+import { CustomColors } from "@/constants/Colors";
 import { StyleSheet } from "react-native";
 
 export default function FishermanScreen() {
   return (
     <ThemedView style={styles.container}>
+      <TopBar role="fisherman" />
       <ThemedText>INI Fisherman screen</ThemedText>
     </ThemedView>
   );
@@ -13,8 +16,8 @@ export default function FishermanScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
     alignItems: "center",
     position: "relative",
+    backgroundColor: CustomColors.gold,
   },
 });

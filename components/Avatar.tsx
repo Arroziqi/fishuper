@@ -5,7 +5,7 @@ interface AvatarProps {
 }
 
 export function Avatar({
-  source = require("@/assets/images/avatar.png"),
+  source = require("@/assets/images/icons/avatar.png"),
 }: AvatarProps) {
   return (
     <View style={styles.container}>
@@ -17,12 +17,12 @@ export function Avatar({
 const styles = StyleSheet.create({
   container: {
     overflow: "hidden",
-    width: 46,
+    height: 47,
     aspectRatio: 1 / 1,
     borderRadius: "50%",
   },
   image: {
-    width: "100%",
+    height: "100%",
     aspectRatio: 1 / 1,
     resizeMode: "contain",
   },

@@ -1,6 +1,5 @@
 import { LinearGradient } from "expo-linear-gradient";
 import { StyleSheet, ViewProps } from "react-native";
-import { ThemedView } from "./ThemedView";
 
 type HeaderViewProps = ViewProps & {
   backgroundColors?: any;
@@ -13,14 +12,12 @@ export function HeaderView({
   ...rest
 }: HeaderViewProps) {
   return (
-    <ThemedView style={[styles.container]}>
-      <LinearGradient
-        colors={backgroundColors}
-        style={[styles.LinearGradient, rest.style]}
-      >
-        {children}
-      </LinearGradient>
-    </ThemedView>
+    <LinearGradient
+      colors={backgroundColors}
+      style={[styles.LinearGradient, rest.style]}
+    >
+      {children}
+    </LinearGradient>
   );
 }
 

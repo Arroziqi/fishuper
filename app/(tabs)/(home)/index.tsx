@@ -19,7 +19,7 @@ export default function HomeScreen({ role = "buyer" }: HomeScreenProps) {
       case "buyer":
         return router.push("/(tabs)/(home)/buyer");
       default:
-        return router.push("/(tabs)/(home)/buyer");
+        return router.push("/landing");
     }
   };
 
@@ -33,6 +33,9 @@ export default function HomeScreen({ role = "buyer" }: HomeScreenProps) {
       </TouchableOpacity>
       <TouchableOpacity onPress={() => getHomeScreen("buyer")}>
         <Text>Go to buyer</Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => getHomeScreen("")}>
+        <Text>Go to Landing page</Text>
       </TouchableOpacity>
     </ThemedView>
   );

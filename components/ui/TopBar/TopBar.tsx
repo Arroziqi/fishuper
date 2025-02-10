@@ -2,9 +2,10 @@ import { Avatar } from "@/components/Avatar";
 import { CustomeSearchBar } from "@/components/CustomSearchBar";
 import { HeaderView } from "@/components/HeaderView";
 import { ThemedText } from "@/components/ThemedText";
+import { CustomColors } from "@/constants/Colors";
 import { useState } from "react";
 import { ImageSourcePropType, StyleSheet, View } from "react-native";
-import { SearchBar } from "react-native-screens";
+import WeatherSlider from "../slider/WeatherSlider";
 
 interface TopBarProps {
   role: string;
@@ -14,33 +15,51 @@ interface TopBarProps {
 export function TopBar({ role, avatar }: TopBarProps) {
   const [query, setQuery] = useState<string>("");
   return (
-    <HeaderView style={styles.headerView}>
-      <View style={styles.profile}>
-        <Avatar source={avatar} />
-        <View style={styles.textAvatarContainer}>
-          <ThemedText style={styles.textAvatar}>Selamat datang,</ThemedText>
-          <ThemedText style={styles.textAvatar} type="title">
-            {role === "nelayan"
-              ? "FISHERMAN (NELAYAN)"
-              : "FISHERER (DISTRIBUTOR)"}
-          </ThemedText>
+    <HeaderView backgroundColors={["white", "white"]} style={styles.headerView}>
+      <View style={styles.container}>
+        <View style={styles.profile}>
+          <Avatar source={avatar} />
+          <View style={styles.textAvatarContainer}>
+            <ThemedText style={styles.textAvatar}>Selamat datang,</ThemedText>
+            <ThemedText style={styles.textAvatar} type="title">
+              {role === "fisherman"
+                ? "FISHERMAN (NELAYAN)"
+                : "FISHERER (DISTRIBUTOR)"}
+            </ThemedText>
+          </View>
         </View>
-        <SearchBar />
+        {/* <SearchBar /> */}
         <CustomeSearchBar query={query} setQuery={setQuery} />
         <ThemedText type="title2" style={styles.text}>
           Prakiraan Cuaca
         </ThemedText>
+      </View>
+      <View style={styles.sliderContainer}>
+        <WeatherSlider style={styles.slider} />
       </View>
     </HeaderView>
   );
 }
 
 const styles = StyleSheet.create({
-  headerView: {},
-  profile: {},
+  container: {
+    gap: 10,
+    paddingHorizontal: 40,
+  },
+  headerView: {
+    gap: 10,
+    paddingHorizontal: 0,
+    position: "relative",
+  },
+  profile: {
+    flexDirection: "row",
+    gap: 7,
+  },
   textAvatarContainer: {},
-  textAvatar: {},
+  textAvatar: {
+    color: CustomColors.blue,
+  },
   text: {},
   sliderContainer: {},
-  slideItem: {},
+  slider: {},
 });

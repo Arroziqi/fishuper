@@ -80,6 +80,7 @@ const styles = StyleSheet.create({
   topbar: {
     justifyContent: "space-between",
     gap: 18,
+    position: "relative",
   },
   ringButton: {
     backgroundColor: "white",
