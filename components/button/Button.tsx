@@ -2,15 +2,16 @@ import {
   StyleProp,
   TextStyle,
   TouchableOpacity,
-  ViewProps,
+  ViewStyle,
 } from "react-native";
 import { ThemedText } from "../ThemedText";
 
-export type ButtonProps = ViewProps & {
+export type ButtonProps = {
   onPress?: () => void;
   text: string;
   disabled?: boolean;
   textStyles?: StyleProp<TextStyle>;
+  style?: StyleProp<ViewStyle>;
 };
 
 export function Button({

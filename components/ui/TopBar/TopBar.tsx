@@ -44,7 +44,7 @@ export function TopBar({ role, avatar }: TopBarProps) {
 const styles = StyleSheet.create({
   container: {
     gap: 10,
-    paddingHorizontal: 40,
+    paddingHorizontal: 20,
   },
   headerView: {
     gap: 10,

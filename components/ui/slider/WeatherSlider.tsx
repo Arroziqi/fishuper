@@ -59,15 +59,16 @@ export default function WeatherSlider({ style }: WeatherSliderProps) {
       style={[styles.scrollView, style]}
     >
       <View style={styles.container}>
-        <Break width={40} />
+        <Break width={20} />
         {model.map((item) => (
           <Card
+            key={item.title}
             title={item.title}
             image={item.image}
             subTitle={item.subTitle}
           />
         ))}
-        <Break width={40} />
+        <Break width={20} />
       </View>
     </ScrollView>
   );

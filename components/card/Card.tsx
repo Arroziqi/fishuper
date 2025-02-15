@@ -9,10 +9,12 @@ import {
 import { ThemedText } from "../ThemedText";
 
 export interface CardProps {
-  title: string;
+  title?: string;
   image?: ImageSourcePropType;
   subTitle?: string;
   style?: ViewStyle;
+  backgroundColor?: string;
+  color?: string;
 }
 
 export default function Card({
@@ -20,12 +22,16 @@ export default function Card({
   image = require("@/assets/images/illustrations/partly-cloudy.png"),
   subTitle,
   style,
+  backgroundColor = CustomColors.primaryColor,
+  color = "white",
 }: CardProps) {
   return (
-    <View style={[style, styles.container]}>
-      <ThemedText style={styles.text}>{title}</ThemedText>
+    <View style={[style, styles.container, { backgroundColor }]}>
+      {title && (
+        <ThemedText style={[styles.text, { color }]}>{title}</ThemedText>
+      )}
       <Image source={image} style={styles.image} />
-      <ThemedText style={styles.text2}>{subTitle}</ThemedText>
+      <ThemedText style={[styles.text2, { color }]}>{subTitle}</ThemedText>
     </View>
   );
 }
@@ -33,10 +39,10 @@ export default function Card({
 const styles = StyleSheet.create({
   container: {
     padding: 7,
+    paddingHorizontal: 3,
     alignItems: "center",
     justifyContent: "space-around",
     gap: 7,
-    backgroundColor: CustomColors.primaryColor,
     borderRadius: 6,
     width: 97,
   },
