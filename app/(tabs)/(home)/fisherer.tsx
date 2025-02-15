@@ -7,6 +7,7 @@ import { ThemedView } from "@/components/ThemedView";
 import { ToggleMenu } from "@/components/toggle/ToggleMenu";
 import { TopBar } from "@/components/ui/TopBar/TopBar";
 import { CustomColors } from "@/constants/Colors";
+import { router } from "expo-router";
 import React, { useState } from "react";
 import { ScrollView, StyleSheet, View } from "react-native";
 
@@ -92,6 +93,9 @@ const Content: React.FC = () => {
           setIsOpen={setModalOpen}
           title={"Ikut Workshop?"}
           textButton={"Konfirmasi"}
+          onPress={() =>
+            router.push("/(responses)/(success)/successfullyRegistered")
+          }
         >
           <ThemedText style={styles.textModal}>
             {
