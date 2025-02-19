@@ -12,6 +12,7 @@ export interface CardProps {
   title?: string;
   image?: ImageSourcePropType;
   subTitle?: string;
+  description?: string;
   style?: ViewStyle;
   backgroundColor?: string;
   color?: string;
@@ -21,6 +22,7 @@ export default function Card({
   title,
   image = require("@/assets/images/illustrations/partly-cloudy.png"),
   subTitle,
+  description,
   style,
   backgroundColor = CustomColors.primaryColor,
   color = "white",
@@ -31,7 +33,14 @@ export default function Card({
         <ThemedText style={[styles.text, { color }]}>{title}</ThemedText>
       )}
       <Image source={image} style={styles.image} />
-      <ThemedText style={[styles.text2, { color }]}>{subTitle}</ThemedText>
+      {subTitle && (
+        <ThemedText style={[styles.text2, { color }]}>{subTitle}</ThemedText>
+      )}
+      {description && (
+        <ThemedText type="label" style={[{ color }]}>
+          {description}
+        </ThemedText>
+      )}
     </View>
   );
 }
@@ -45,6 +54,11 @@ const styles = StyleSheet.create({
     gap: 7,
     borderRadius: 6,
     width: 97,
+    shadowColor: "#000",
+    shadowOffset: { width: 2, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
   },
   image: {
     height: 52,
@@ -60,5 +74,6 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 15,
     lineHeight: 15,
+    fontWeight: "700",
   },
 });

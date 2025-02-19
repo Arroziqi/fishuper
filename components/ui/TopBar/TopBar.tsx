@@ -1,8 +1,7 @@
-import { Avatar } from "@/components/Avatar";
 import { CustomeSearchBar } from "@/components/CustomSearchBar";
+import Profile from "@/components/header/Profile";
 import { HeaderView } from "@/components/HeaderView";
 import { ThemedText } from "@/components/ThemedText";
-import { CustomColors } from "@/constants/Colors";
 import { useState } from "react";
 import { ImageSourcePropType, StyleSheet, View } from "react-native";
 import WeatherSlider from "../slider/WeatherSlider";
@@ -17,18 +16,7 @@ export function TopBar({ role, avatar }: TopBarProps) {
   return (
     <HeaderView backgroundColors={["white", "white"]} style={styles.headerView}>
       <View style={styles.container}>
-        <View style={styles.profile}>
-          <Avatar source={avatar} />
-          <View style={styles.textAvatarContainer}>
-            <ThemedText style={styles.textAvatar}>Selamat datang,</ThemedText>
-            <ThemedText style={styles.textAvatar} type="title">
-              {role === "fisherman"
-                ? "FISHERMAN (NELAYAN)"
-                : "FISHERER (DISTRIBUTOR)"}
-            </ThemedText>
-          </View>
-        </View>
-        {/* <SearchBar /> */}
+        <Profile role={role} avatar={avatar} />
         <CustomeSearchBar query={query} setQuery={setQuery} />
         <ThemedText type="title2" style={styles.text}>
           Prakiraan Cuaca
@@ -50,14 +38,6 @@ const styles = StyleSheet.create({
     gap: 10,
     paddingHorizontal: 0,
     position: "relative",
-  },
-  profile: {
-    flexDirection: "row",
-    gap: 7,
-  },
-  textAvatarContainer: {},
-  textAvatar: {
-    color: CustomColors.blue,
   },
   text: {},
   sliderContainer: {},

@@ -17,7 +17,7 @@ export default function HomeScreen({ role = "buyer" }: HomeScreenProps) {
       case "fisherer":
         return router.push("/(tabs)/(home)/fisherer");
       case "buyer":
-        return router.push("/(tabs)/(home)/buyer");
+        return router.push("/(tabs)/(home)/fisheries");
       default:
         return router.push("/landing");
     }

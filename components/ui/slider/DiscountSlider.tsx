@@ -18,26 +18,6 @@ const model: CardProps[] = [
     image: require("@/assets/images/illustrations/partly-cloudy.png"),
     subTitle: "Cerah Berawan",
   },
-  {
-    title: "Kamis",
-    image: require("@/assets/images/illustrations/partly-cloudy.png"),
-    subTitle: "Cerah Berawan",
-  },
-  {
-    title: "Jumat",
-    image: require("@/assets/images/illustrations/partly-cloudy.png"),
-    subTitle: "Cerah Berawan",
-  },
-  {
-    title: "Sabtu",
-    image: require("@/assets/images/illustrations/partly-cloudy.png"),
-    subTitle: "Cerah Berawan",
-  },
-  {
-    title: "Minggu",
-    image: require("@/assets/images/illustrations/partly-cloudy.png"),
-    subTitle: "Cerah Berawan",
-  },
 ];
 
 interface WeatherSliderProps {
