@@ -15,14 +15,23 @@ export default function Profile({ role, avatar }: ProfileProps) {
       <View style={styles.textAvatarContainer}>
         <ThemedText style={styles.textAvatar}>Selamat datang,</ThemedText>
         <ThemedText style={styles.textAvatar} type="title">
-          {role === "fisherman"
-            ? "FISHERMAN (NELAYAN)"
-            : "FISHERER (DISTRIBUTOR)"}
+          {getRoleUser(role)}
         </ThemedText>
       </View>
     </View>
   );
 }
+
+const getRoleUser = (role: string): string => {
+  switch (role) {
+    case "fisherman":
+      return "FISHERMAN (NELAYAN)";
+    case "fisherer":
+      return "FISHERER (DISTRIBUTOR)";
+    default:
+      return "FISHERIES (PEMBELI)";
+  }
+};
 
 const styles = StyleSheet.create({
   profile: {

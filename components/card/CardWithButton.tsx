@@ -10,7 +10,7 @@ import SmallButton from "../button/SmallButton";
 import { ThemedText } from "../ThemedText";
 import { CardProps } from "./Card";
 
-interface CardWithButtonProps extends CardProps {
+export interface CardWithButtonProps extends CardProps {
   textButton: string;
   onPress?: () => void;
   imageStyle?: StyleProp<ImageStyle>;

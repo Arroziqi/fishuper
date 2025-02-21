@@ -5,7 +5,7 @@ import ModalWithInput from "@/components/modal/ModalWithInput";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { ToggleMenu } from "@/components/toggle/ToggleMenu";
-import { TopBar } from "@/components/ui/TopBar/TopBar";
+import { TopBarFisheries } from "@/components/ui/TopBar/TopBarFisheries";
 import { CustomColors } from "@/constants/Colors";
 import { router } from "expo-router";
 import React, { useState } from "react";
@@ -15,7 +15,7 @@ export default function FisheriesScreen() {
   return (
     <>
       <ThemedView style={styles.container}>
-        <TopBar role="fisherman" />
+        <TopBarFisheries />
         <Content />
       </ThemedView>
     </>
