@@ -1,50 +1,102 @@
-# Welcome to your Expo app 👋
+# Fish UPER
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Fish UPER adalah sebuah platform pasar ikan digital yang menghubungkan nelayan, distributor (mitra), dan pembeli dalam satu ekosistem yang saling menguntungkan.
 
-## Get started
+## 📌 Fitur Utama
 
-1. Install dependencies
+Fish UPER memiliki tiga peran utama dalam aplikasinya:
 
-   ```bash
-   npm install
-   ```
+### 🐟 Nelayan
 
-2. Start the app
+Nelayan dapat:
 
-   ```bash
-    npx expo start
-   ```
+- Menyediakan suplai ikan segar ke Fish UPER setelah selesai "miyang" (melaut/memancing).
+- Mendapatkan poin dari hasil suplai ikan yang bisa digunakan untuk bonus atau keuntungan tambahan.
+- Meminta modal ke Fish UPER untuk mendukung operasionalnya.
+- Menabung hasil pendapatan di Fish UPER atau langsung mengambilnya sebagai modal usaha.
 
-In the output, you'll find options to open the app in a
+### 🚛 Mitra (Distributor)
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+Mitra bertindak sebagai distributor atau cold storage untuk Fish UPER. Mereka memiliki fitur:
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+- Menabung seperti nelayan, dengan opsi untuk menginvestasikan uang tersebut sebagai modal nelayan.
+- Mengikuti pelatihan dan workshop mengenai strategi pemasaran dan distribusi hasil laut.
 
-## Get a fresh project
+### 🛒 Pembeli
 
-When you're ready, run:
+Pembeli dapat:
+
+- Melihat update terbaru mengenai suplai ikan segar yang tersedia.
+- Berlangganan aplikasi untuk mendapatkan prioritas layanan dan diskon khusus.
+- Membeli ikan secara online dengan layanan pengantaran langsung ke lokasi.
+
+---
+
+## 🚀 Instalasi dan Penggunaan
+
+### 1. Clone Repository
 
 ```bash
-npm run reset-project
+git clone https://github.com/Arroziqi/fishuper.git
+cd fishuper
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### 2. Install Dependencies
 
-## Learn more
+```bash
+npm install
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+### 3. Jalankan Aplikasi
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+```bash
+npx expo start
+```
 
-## Join the community
+Di output terminal, Anda bisa memilih untuk membuka aplikasi di:
 
-Join our community of developers creating universal apps.
+- [Development Build](https://docs.expo.dev/develop/development-builds/introduction/)
+- [Android Emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
+- [iOS Simulator](https://docs.expo.dev/workflow/ios-simulator/)
+- [Expo Go](https://expo.dev/go)
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+---
+
+## 📁 Struktur Proyek
+
+```
+fishuper/
+├── app/                   # Direktori utama aplikasi
+├── assets/                # Font, Gambar, dan ikon
+├── components/            # Komponen UI yang dapat digunakan kembali
+├── constants/             # Konstanta global
+├── hooks/                 # Custom hooks untuk state management dan logika aplikasi
+├── scripts/               # Skrip pendukung untuk otomatisasi dan memanggil API
+├── package.json           # Konfigurasi dependencies
+├── README.md              # Dokumentasi proyek
+```
+
+---
+
+## 🎓 Sumber Daya Tambahan
+
+- [Dokumentasi Expo](https://docs.expo.dev/)
+- [Panduan Routing Expo](https://docs.expo.dev/router/introduction/)
+- [Expo GitHub](https://github.com/expo/expo)
+- [Komunitas Expo di Discord](https://chat.expo.dev)
+
+---
+
+## 💡 Kontribusi
+
+Kami terbuka untuk kontribusi! Jika Anda ingin berkontribusi, silakan buat _pull request_ atau buka _issue_ di repository ini.
+
+---
+
+## 📄 Lisensi
+
+Fish UPER dikembangkan dengan tujuan membantu ekosistem perikanan digital. Proyek ini menggunakan lisensi [MIT](https://opensource.org/licenses/MIT).
+
+---
+
+Terima kasih telah menggunakan Fish UPER! 🎣🚀
