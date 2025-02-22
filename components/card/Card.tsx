@@ -3,6 +3,7 @@ import {
   Image,
   ImageSourcePropType,
   StyleSheet,
+  TouchableOpacity,
   View,
   ViewStyle,
 } from "react-native";
@@ -16,6 +17,7 @@ export interface CardProps {
   style?: ViewStyle;
   backgroundColor?: string;
   color?: string;
+  onPress?: () => void;
 }
 
 export default function Card({
@@ -26,22 +28,25 @@ export default function Card({
   style,
   backgroundColor = CustomColors.primaryColor,
   color = "white",
+  onPress = () => {},
 }: CardProps) {
   return (
-    <View style={[style, styles.container, { backgroundColor }]}>
-      {title && (
-        <ThemedText style={[styles.text, { color }]}>{title}</ThemedText>
-      )}
-      <Image source={image} style={styles.image} />
-      {subTitle && (
-        <ThemedText style={[styles.text2, { color }]}>{subTitle}</ThemedText>
-      )}
-      {description && (
-        <ThemedText type="label" style={[{ color }]}>
-          {description}
-        </ThemedText>
-      )}
-    </View>
+    <TouchableOpacity onPress={onPress}>
+      <View style={[style, styles.container, { backgroundColor }]}>
+        {title && (
+          <ThemedText style={[styles.text, { color }]}>{title}</ThemedText>
+        )}
+        <Image source={image} style={styles.image} />
+        {subTitle && (
+          <ThemedText style={[styles.text2, { color }]}>{subTitle}</ThemedText>
+        )}
+        {description && (
+          <ThemedText type="label" style={[{ color }]}>
+            {description}
+          </ThemedText>
+        )}
+      </View>
+    </TouchableOpacity>
   );
 }
 

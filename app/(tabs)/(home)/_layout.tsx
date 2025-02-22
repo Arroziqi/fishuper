@@ -6,6 +6,7 @@ export default function HomeLayout() {
       <Stack.Screen name="fisherman" options={{ headerShown: false }} />
       <Stack.Screen name="fisherer" options={{ headerShown: false }} />
       <Stack.Screen name="fisheries" options={{ headerShown: false }} />
+      <Stack.Screen name="products/[id]" options={{ headerShown: false }} />
     </Stack>
   );
 }

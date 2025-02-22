@@ -55,6 +55,7 @@ const Content: React.FC = () => {
               <View style={styles.supply}>
                 {model.map((item) => (
                   <Card
+                    onPress={() => router.push("/products/1")}
                     style={styles.supplyCard}
                     backgroundColor="white"
                     color="black"

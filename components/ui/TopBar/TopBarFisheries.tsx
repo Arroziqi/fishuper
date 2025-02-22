@@ -29,7 +29,7 @@ export function TopBarFisheries({ avatar }: TopBarFisheriesProps) {
   const [query, setQuery] = useState<string>("");
   return (
     <HeaderView backgroundColors={["white", "white"]} style={styles.headerView}>
-    <View style={styles.container}>
+      <View style={styles.container}>
         <Profile role={"fisheries"} avatar={avatar} />
         <CustomeSearchBar query={query} setQuery={setQuery} />
       </View>
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
   },
   product: {
     flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: "space-around",
   },
   card: {
     borderWidth: 1,
