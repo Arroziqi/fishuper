@@ -1,14 +1,8 @@
 import Boxshadow from "@/components/Boxshadow";
 import { ThemedText } from "@/components/ThemedText";
 import { CustomColors } from "@/constants/Colors";
-import { MaterialIcons } from "@expo/vector-icons";
-import {
-  Image,
-  ImageSourcePropType,
-  StyleSheet,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { Image, ImageSourcePropType, StyleSheet, View } from "react-native";
+import AddRemoveButton from "../button/AddRemoveButton";
 
 interface ProductCardProps {
   title: string;
@@ -35,11 +29,11 @@ export default function ProductCard({
         <View style={styles.priceContainer}>
           <View style={styles.price}>
             <ThemedText type="label">Rp100/gr</ThemedText>
-            {addRemoveButton()}
+            <AddRemoveButton />
           </View>
           <View style={styles.price}>
             <ThemedText type="label">Rp90.000/gr</ThemedText>
-            {addRemoveButton()}
+            <AddRemoveButton />
           </View>
         </View>
       </View>
@@ -55,18 +49,6 @@ const label = (text: string) => (
     <ThemedText type="textButton" lightColor="white">
       {text}
     </ThemedText>
-  </View>
-);
-
-const addRemoveButton = (price: number = 0) => (
-  <View style={styles.buttonContainer}>
-    <TouchableOpacity style={styles.button}>
-      <MaterialIcons name="remove-circle-outline" size={28} />
-    </TouchableOpacity>
-    <ThemedText>{price}</ThemedText>
-    <TouchableOpacity style={styles.button}>
-      <MaterialIcons name="add-circle-outline" size={28} />
-    </TouchableOpacity>
   </View>
 );
 
@@ -91,9 +73,6 @@ const styles = StyleSheet.create({
     gap: 10,
   },
   title: {},
-  button: {
-    alignSelf: "center",
-  },
   priceContainer: {
     flexDirection: "row",
     gap: 28,
@@ -101,11 +80,5 @@ const styles = StyleSheet.create({
   price: {
     alignItems: "center",
     gap: 3,
-  },
-  buttonContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    gap: 7,
   },
 });

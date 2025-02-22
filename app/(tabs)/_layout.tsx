@@ -3,10 +3,15 @@ import React from "react";
 import { Platform } from "react-native";
 
 import { HapticTab } from "@/components/HapticTab";
-import { IconSymbol } from "@/components/ui/IconSymbol";
 import TabBarBackground from "@/components/ui/TabBarBackground";
 import { Colors } from "@/constants/Colors";
 import { useColorScheme } from "@/hooks/useColorScheme";
+import {
+  Feather,
+  FontAwesome,
+  MaterialCommunityIcons,
+  Octicons,
+} from "@expo/vector-icons";
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -32,7 +37,7 @@ export default function TabLayout() {
         options={{
           title: "Notification",
           tabBarIcon: ({ color }) => (
-            <IconSymbol size={28} name="bell.fill" color={color} />
+            <FontAwesome size={28} name="bell-o" color={color} />
           ),
         }}
       />
@@ -41,7 +46,11 @@ export default function TabLayout() {
         options={{
           title: "Cart",
           tabBarIcon: ({ color }) => (
-            <IconSymbol size={28} name="cart.fill" color={color} />
+            <MaterialCommunityIcons
+              size={28}
+              name="cart-outline"
+              color={color}
+            />
           ),
         }}
       />
@@ -50,7 +59,7 @@ export default function TabLayout() {
         options={{
           title: "Home",
           tabBarIcon: ({ color }) => (
-            <IconSymbol size={28} name="house.fill" color={color} />
+            <Feather size={28} name="home" color={color} />
           ),
         }}
       />
@@ -59,7 +68,7 @@ export default function TabLayout() {
         options={{
           title: "Setting",
           tabBarIcon: ({ color }) => (
-            <IconSymbol size={28} name="gear.circle.fill" color={color} />
+            <Octicons size={28} name="gear" color={color} />
           ),
         }}
       />
